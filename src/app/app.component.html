@@ -1,0 +1,46 @@
+<div id="header">
+   <table style="width: 100%; background: #5db2ff; color:#ffffff" border=0>
+   		<tr>
+   			<td>
+   			<h2>Blogs & Day to Day Activities</h2>
+   			<!-- <img src="/jmns/designs/images/MS_Logo.jpg" width="300px" height="40px"/> --> 
+   			</td>
+   			<td>   			 
+   			<h4>Welcome : <%=userName %></h4>     		
+    		</td>
+    		<td></td>
+   			<td>
+   			
+   			<a href="/jmns" class="btn">  Logout <!-- <img src="/jmns/designs/images/logout.png" width="35px" height="35px"/> --></a>
+   			</td>
+   		</tr>
+   </table>
+</div>
+
+ <nav>
+ <div id="menutwo">      
+	  <ul>
+		  <li class="${task}"><a routerLink="/task" routerLinkActive="active">Task</a></li>
+		  <li class="${note}"><a href='/note'>Notes</a></li>		  
+		  <li class="${tpost}"><a href='/jmns/postlist'>My Post</a></li>		  
+		  <li class="${acc}"><a href='/jmns/accountlist'>Accounts</a></li>
+		  <li class="${acc}"><a href='/jmns/accountlist'>Categories</a></li>
+		  <li class="${acc}"><a href='/jmns/accountlist'>Blogs</a></li>
+		  <li class="${users}"><a href='/jmns/userlist'>Admin</a></li>
+		  		  
+		  <li class="${cat}"><a routerLink="/user" routerLinkActive="active">Users</a></li>		  
+		  <li class="${ttpost}"><a routerLink="/" routerLinkActive="active">Home</a></li>		 	  
+	</ul>  
+</div>
+ </nav>
+
+<h1>
+  {{title}}  
+</h1>	
+<router-outlet></router-outlet>
+
+<div id="footer"> 
+Activities -  murugan srinivasan - Angular JS  @2018
+</div>
+
+

@@ -1,0 +1,21 @@
+<table border=0 style="width: 100%; white-space: nowrap; table-layout: fixed;" class="gridT">
+             <thead>
+             <tr class="tabHead">
+                 <th>Title</th>
+                 <th>US</th>
+                 <th>Description</th>
+                 <th>Created By</th>
+             </tr>
+             </thead>
+             <tbody>
+             <tr *ngFor="let post of _postsArray" class='datatableodd'>                 
+                 <td>{{post.title}}</td>
+                 <td>{{post.userStory}}</td>
+                 <td>{{post.description}}</td>
+                 <td>{{post.createdBy}}</td>
+             </tr>
+             </tbody>
+</table>
+
+      
+      
