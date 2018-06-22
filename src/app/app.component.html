@@ -20,6 +20,8 @@
  <nav>
  <div id="menutwo">      
 	  <ul>
+	  <li class="${task}"><a routerLink="/adduser" routerLinkActive="active">AddUser</a></li>
+	  <li class="${task}"><a routerLink="/hero" routerLinkActive="active">hero</a></li>
 		  <li class="${task}"><a routerLink="/task" routerLinkActive="active">Task</a></li>
 		  <li class="${note}"><a href='/note'>Notes</a></li>		  
 		  <li class="${tpost}"><a href='/jmns/postlist'>My Post</a></li>		  
@@ -34,9 +36,7 @@
 </div>
  </nav>
 
-<h1>
-  {{title}}  
-</h1>	
+	
 <router-outlet></router-outlet>
 
 <div id="footer"> 

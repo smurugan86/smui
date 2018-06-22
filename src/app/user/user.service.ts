@@ -9,21 +9,9 @@ import {IPosts} from "./../posts";
 @Injectable()
 export class UserService {
 
-  
-/*  angular.module('demo', [])
-  .controller('Hello', function($scope, $http) {
-      $http.get('http://rest-service.guides.spring.io/greeting').
-          then(function(response) {
-              $scope.greeting = response.data;
-          });
-  });*/
-  
-    private _postsURL = "http://localhost:6060/jer/rest/user/list";
+  private _postsURL = "http://localhost:6060/jer/rest/user/getAllUser";
     
-    //private _postsURL = "https://jsonplaceholder.typicode.com/posts";
-  
-  constructor(private http: Http) {
-  }
+  constructor(private http: Http) {}
 
   getPosts(): Observable<IPosts[]> {
       return this.http
