@@ -1,4 +1,6 @@
-<h3><i>Edit User</i></h3>
+<h3><i>Edit Task</i></h3>
+
+ <div class="container">
 <div [hidden]="submitted">
 <form (ngSubmit)="onSubmit()">
   <div class="form-group">
@@ -31,7 +33,7 @@
     
   <div class="form-row">
  	<button type="submit" class="btn btn-success">save</button>
-      <!-- <button type="button" [disabled]="!heroForm.valid" (click)="openDialog()">Save</button> -->
+     <button class="btn btn-danger" (click)="delete()">Delete</button>
   </div>
     
 </form>
@@ -45,4 +47,6 @@
       <button class="btn btn-primary" (click)="goBack()">Back</button>
       <button class="btn btn-success" (click)="submitted=false">Edit</button>
     </div>
+</div>
+
 </div>

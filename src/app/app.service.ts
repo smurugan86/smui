@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import "rxjs/Rx";
 import {IPosts} from "./posts";
-import { User } from './hero-detail/user';
+import { User } from './user/user';
 import { Headers, Http,Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Location } from '@angular/common';
@@ -53,9 +53,9 @@ export class AppService {
           .catch(this.handleError);
       }
 
-      deleteUser(id: number): Promise<void> {
+      deleteUser(id: string): Promise<void> {
         const url = `${this.customersUrl}/deleteuser/${id}`;
-        return this.http.delete(url, {headers: this.headers})
+        return this.http.get(url, {headers: this.headers})
           .toPromise()
           .then(() => null)
           .catch(this.handleError);

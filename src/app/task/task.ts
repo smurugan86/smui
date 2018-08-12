@@ -1,10 +1,11 @@
 
 
-export interface ITask {
+export class Task {
     //date: string;
-title: string;
-userStory: string;
-description: string;
-createdBy:string;
-//createdDate :string;
+    _id: string;
+    title: string;
+   userStory: string;
+   description: string;
+   createdBy:string;
+  //createdDate :string;
 }

@@ -1,35 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,NgForm, Validators } from '@angular/forms';
-import {UserService} from "../user/user.service";
+import {NoteService} from "../note/note.service";
 import {IPosts} from "./../posts";
 
 @Component({
-  selector: 'app-user',
-  templateUrl: '../user/user.component.html',
-  styleUrls: ['../user/user.component.css'],
-  providers: [UserService]
+  selector: 'app-note',
+  templateUrl: '../note/note.component.html',
+  styleUrls: ['../note/note.component.css'],
+  providers: [NoteService]
 })
 export class NoteComponent implements OnInit {
   
- title = 'User List';
+ title = 'note List';
   
   test = 'Welcome';
   
   _postsArray: IPosts[];
   
-  constructor(private userService: UserService) {
+  constructor(private noteService: NoteService) {
   }
 
-  getPosts(): void {
-      this.userService.getPosts()
-          .subscribe(
-              resultArray => this._postsArray = resultArray,
-              error => console.log("Error :: " + error)
-          )
-  }
 
   ngOnInit(): void {
-      this.getPosts();
+     
   }
   
 }

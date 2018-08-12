@@ -6,22 +6,31 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
+import { NoteComponent } from './note/note.component';
 import { TaskComponent } from './task/task.component';
-import { AdduserComponent } from './user/adduser.component';
+import { AddTaskComponent } from './task/add-task/add-task.component';
+
 import { RouterModule, Routes } from '@angular/router';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
+import { AddUserComponent } from './user/add-user/add-user.component';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
+//import {MdDialogModule} from '@angular/material';
 
 
-
-const appRoutes: Routes = [
-                          /* { path: 'crisis-center', component: CrisisListComponent },
+const appRoutes: Routes = [                          
+                           {path: 'user', component: UserComponent},                                                  
+                           {path: 'adduser', component: AddUserComponent},
+                           {path: 'userdetail/:id',      component: EditUserComponent },                           
+                           {path: 'note', component: NoteComponent},                           
+                           {path: 'task', component: TaskComponent,
+                               children: [                                        
+                                          { path: 'addtask', component: AddTaskComponent }
+                                        ]
+                           }
+                                                      
+                           /*{ path: 'crisis-center', component: CrisisListComponent },
                            { path: 'hero/:id',      component: HeroDetailComponent },*/
-                           {path: 'user', component: UserComponent},
-                           {path: 'task', component: TaskComponent},
-                           {path: 'adduser', component: AdduserComponent},
-                           { path: 'userdetail/:id',      component: EditUserComponent },                           
-                           { path: 'hero',      component: HeroDetailComponent }
+                           //{path: 'task', component: TaskComponent},
+                          // {path: 'task/addtask', component: AddTaskComponent},                           
                          /*  {
                              path: 'heroes',
                              component: HeroListComponent,
@@ -38,19 +47,18 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     UserComponent,
-    TaskComponent,
-    AdduserComponent,
-    HeroDetailComponent,
-    EditUserComponent
+    TaskComponent,    
+    AddUserComponent,
+    EditUserComponent,
+    NoteComponent,
+    AddTaskComponent
   ],
-  imports: [
-            
-RouterModule.forRoot(
+  imports: [           
+        RouterModule.forRoot(
         appRoutes,
         { enableTracing: true } // <-- debugging purposes only
       ),
       // other imports here
-      
     BrowserModule,
     FormsModule,
     HttpModule,

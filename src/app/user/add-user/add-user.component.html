@@ -1,5 +1,9 @@
-<h3><i>A FormGroup with multiple FormControls</i></h3>
-<form (ngSubmit)="onSubmit()">
+<div class="container">
+
+<h3><i> Create User</i></h3>
+<div [hidden]="submitted">
+ 
+<form class="emp-form" (ngSubmit)="onSubmit()">
   <div class="form-group">
       <label class="center-block">First Name:    
       <input type="text" class="form-control" id="firstname" required
@@ -38,24 +42,19 @@
     </label>
   </div>
   
- <!--  <div class="form-group radio">
-    <h4>Super power:</h4>
-    <label class="center-block"><input type="radio" formControlName="power" value="flight">Flight</label>
-    <label class="center-block"><input type="radio" formControlName="power" value="x-ray vision">X-ray vision</label>
-    <label class="center-block"><input type="radio" formControlName="power" value="strength">Strength</label>
-  </div>
-  <div class="checkbox">
-    <label class="center-block">
-      <input type="checkbox" formControlName="sidekick">I have a sidekick.
-    </label>
-  </div> -->
-  
   <div class="form-row">
- 	<button type="submit" class="btn btn-success">save</button>
-      <!-- <button type="button" [disabled]="!heroForm.valid" (click)="openDialog()">Save</button> -->
+ 	<button type="submit" class="btn btn-success">save</button>   	
+ 	<button class="btn btn-primary"  routerLink="/user">Back</button>   
   </div>
     
-</form>
+</form> 
+</div>
 
-
-<p>Form value: {{ heroForm.value | json }}</p>
+<div [hidden]="!submitted">
+    <h4>User Created successfully!</h4>
+    <div class="btn-group">
+      <button class="btn btn-primary" (click)="goBack()">Back</button>      
+      <button class="btn btn-success" (click)="submitted=false">Edit</button>
+    </div>
+</div>
+</div>

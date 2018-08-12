@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,NgForm, Validators } from '@angular/forms';
 import {TaskService} from "../task/task.service";
-import {ITask} from "../task/task";
+import {Task} from "../task/task";
 
 @Component({
   selector: 'app-task',
@@ -15,7 +15,7 @@ export class TaskComponent implements OnInit {
   
   test = 'Welcome';
   
-  _postsArray: ITask[];
+  _postsArray: Task[];
   
   constructor(private taskService: TaskService) {
   }

@@ -1,23 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 //import { FormControl } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../hero-detail/user';
-import {AppService} from "./../app.service";
+import { User } from '../user';
+import {AppService} from "../../app.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-hero-detail',
-  templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css']
+  templateUrl: './add-user.component.html',
+  styleUrls: ['./add-user.component.css']
 })
-export class HeroDetailComponent {
+export class AddUserComponent {
 
     heroForm: FormGroup;
     form: FormGroup;
-//states = states;
+submitted = false;
 user = new User();
 
 
-constructor(private fb: FormBuilder,private appService: AppService) {
+constructor(private fb: FormBuilder,
+        private appService: AppService,
+        private location: Location) {
   this.createForm();
   
 }
@@ -44,12 +47,14 @@ openDialog() {
 
 
 onSubmit(): void {
-    //this.submitted = true;
+    this.submitted = true;
      this.appService.update(this.user);
     console.log(this.user); 
   }
 
-  
+goBack(): void {
+    this.location.back();
+  }
  
 }
 

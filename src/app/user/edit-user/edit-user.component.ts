@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 //import { FormControl } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../user/user';
-import {AppService} from "./../app.service";
+import { User } from '../user';
+import {AppService} from "../../app.service";
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
@@ -27,7 +27,7 @@ constructor(
         private location: Location) {
 }
 
-ngOnInit(): void {
+  ngOnInit(): void {
     this.route.params
     .switchMap((params: Params) => this.appService.getUser(params['id']))
     .subscribe(user => this.user = user);
@@ -39,9 +39,9 @@ ngOnInit(): void {
     console.log(this.user);
   }
  
-  /*delete(): void {
-    this.appService.deleteUser(this.user.id).then(() => this.goBack());
-  }*/
+  delete(): void {
+    this.appService.deleteUser(this.user._id).then(() => this.goBack());
+  }
  
   goBack(): void {
     this.location.back();

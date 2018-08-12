@@ -1,12 +1,16 @@
  <div class="container">
+  <div class="row">
+ 	<button routerLink="/adduser" class="btn btn-success">Add User</button>
+   </div>
      <div class="row">
-         <table class="table">
+         <table class="table table-sm table-hover">
              <thead class="thead-inverse">
              <tr>
                  <th class="text-center">First Name</th>
                  <th class="text-center">Last Name</th>
                  <th class="text-center">Email</th>
-                 <th class="text-center">Action</th>
+                 <th class="text-center"></th>
+                 <th class="text-center"></th>	
              </tr>
              </thead>
              <tbody>
@@ -14,7 +18,11 @@
                  <td class="text-center" style="width: 100px;"> {{post.firstName}}</td>
                  <td class="text-center" style="width: 200px;">{{post.lastName}}</td>
                  <td class="text-center">{{post.email}}</td>
-                  <td class="text-center" style="width: 15px;"><a [routerLink]="['/userdetail', post._id]"  class="col-1-4"> Edit </a></td>
+                 <td class="text-center" style="width: 15px;">
+                 	<a [routerLink]="['/userdetail', post._id]"  class="btn"> Edit </a></td>
+                 <td class="text-center" style="width: 15px;">
+                 	 <a [routerLink]="['/deleteuser', post._id]"  class="btn"> Delete	</a>
+                 </td>
              </tr>
              </tbody>
          </table>

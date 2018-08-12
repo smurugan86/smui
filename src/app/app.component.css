@@ -2,20 +2,20 @@
 /* Others  */
 
 table {
-	border-left:3px solid #5db2ff;
-	border-right:3px solid #5db2ff;
-	border-top: 3px solid #5db2ff;
-	border-bottom: 3px solid #5db2ff;
-	/* border-color: 1px solid #5db2ff;
+	border-left:3px solid #636363;
+	border-right:3px solid #636363;
+	border-top: 3px solid #636363;
+	border-bottom: 3px solid #636363;
+	/* border-color: 1px solid #636363;
 	 */
 }
 
 /* table td{
-	border-left:3px solid #5db2ff;
-	border-right:3px solid #5db2ff;
-	border-top: 3px solid #5db2ff;
-	border-bottom: 3px solid #5db2ff;
-	border-color: 3px solid #5db2ff;
+	border-left:3px solid #636363;
+	border-right:3px solid #636363;
+	border-top: 3px solid #636363;
+	border-bottom: 3px solid #636363;
+	border-color: 3px solid #636363;
 	
 } */
 td.grid {
@@ -37,7 +37,7 @@ td.grid {
         
         
 tr.tabHead{
-	background: #5db2ff;
+	background: #636363;
 	/* linear-gradient(to bottom, #FF6690 0px, #FF6690 100%) repeat scroll 0 0 rgba(0, 0, 0, 0); */
 	font-size: 98%;
     font-weight: bold;
@@ -90,7 +90,7 @@ box{
 	width: 500px;
 }
 label.lab {	
-	color: #5db2ff;
+	color: #636363;
 	 font-size: 98%;
     font-weight: bold;
 }
@@ -133,7 +133,8 @@ p.view{
 	
 }
 #footer{
-  border-bottom: 5px solid #5db2ff;  
+  border-top: 5px solid #636363;  
+  border-bottom: 5px solid #636363;  
   font-family: Raleway, sans-serif;
   line-height: 1;  
   float: left;
@@ -141,13 +142,13 @@ p.view{
   width: 100%;
   height: 60px;
   padding-top: 5px;  
-  /* border-top: 3px solid #5db2ff;  
+  /* border-top: 3px solid #636363;  
   padding-bottom: 10px;     */
 }
 
 #header{
   width: auto;
-  /* border-bottom: 3px solid #5db2ff; */
+  /* border-bottom: 3px solid #636363; */
   font-family: Raleway, sans-serif;
   display: block;  
   
@@ -191,7 +192,7 @@ tr.error{
 }
 #cssmenu {
   width: auto;
-  border-bottom: 3px solid #5db2ff;
+  border-bottom: 3px solid #636363;
   font-family: Raleway, sans-serif;
   line-height: 1;
   font-size: 98%;
@@ -224,7 +225,7 @@ tr.error{
    font-size: 98%;
   font-weight: bold;
   text-decoration: none;
-  color: #444444;
+  color: #FFCC00;
   -webkit-transition: all .2s ease;
   -moz-transition: all .2s ease;
   -ms-transition: all .2s ease;
@@ -262,7 +263,7 @@ tr.error{
 #cssmenu > ul > li.active > a:after,
 #cssmenu > ul > li:hover > a:after,
 #cssmenu > ul > li > a:hover:after {
-  background: #5db2ff;
+  background: #636363;
 }
 
 /* Menu Two  */
@@ -294,14 +295,14 @@ tr.error{
 }
 #menutwo {
   width: auto;
- /*  border-bottom: 3px solid #5db2ff; */
+ /*  border-bottom: 3px solid #636363; */
   font-family: Raleway, sans-serif;
   line-height: 1;
   font-size: 98%;
   font-weight: bold;
 }
 #menutwo ul {
-  background:#5db2ff; /* #ffffff */
+  background:#636363; /* #ffffff */
 }
 #menutwo > ul > li {
   float: left;
@@ -327,7 +328,7 @@ tr.error{
    font-size: 98%;
   font-weight: bold;
   text-decoration: none;
-  color: #444444;
+  color: #FFCC00;
   -webkit-transition: all .2s ease;
   -moz-transition: all .2s ease;
   -ms-transition: all .2s ease;
@@ -366,5 +367,5 @@ tr.error{
 #menutwo > ul > li:hover > a:after,
 #menutwo > ul > li > a:hover:after {
   /* background: #FF6690; */
-  background: #ffffff; /* #5db2ff */
+  background: #ffffff; /* #636363 */
 }
