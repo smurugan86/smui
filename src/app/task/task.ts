@@ -7,5 +7,6 @@ export class Task {
    userStory: string;
    description: string;
    createdBy:string;
+   taskDate:Date;
   //createdDate :string;
 }

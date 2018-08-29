@@ -10,7 +10,8 @@ import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'app-edit-task',
   templateUrl: './edit-task.component.html',
-  styleUrls: ['./edit-task.component.css']
+  styleUrls: ['./edit-task.component.css'],
+  providers: [TaskService]
 })
 export class EditTaskComponent {
 
@@ -29,18 +30,18 @@ constructor(
 
   ngOnInit(): void {
     this.route.params
-    .switchMap((params: Params) => this.taskService.getUser(params['id']))
+    .switchMap((params: Params) => this.taskService.getTask(params['id']))
     .subscribe(task => this.task = task);
   }
 
    onSubmit(): void {
     this.submitted = true;
-    this.taskService.updateUser(this.task);
+    this.taskService.updateTask(this.task);
     console.log(this.task);
   }
  
   delete(): void {
-    this.taskService.deleteUser(this.task._id).then(() => this.goBack());
+    this.taskService.deleteTask(this.task._id).then(() => this.goBack());
   }
  
   goBack(): void {

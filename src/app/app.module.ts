@@ -13,6 +13,8 @@ import { AddTaskComponent } from './task/add-task/add-task.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AddUserComponent } from './user/add-user/add-user.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
+
+import { EditTaskComponent } from './task/edit-task/edit-task.component';
 //import {MdDialogModule} from '@angular/material';
 
 
@@ -20,13 +22,11 @@ const appRoutes: Routes = [
                            {path: 'user', component: UserComponent},                                                  
                            {path: 'adduser', component: AddUserComponent},
                            {path: 'userdetail/:id',      component: EditUserComponent },                           
-                           {path: 'note', component: NoteComponent},                           
-                           {path: 'task', component: TaskComponent,
-                               children: [                                        
-                                          { path: 'addtask', component: AddTaskComponent }
-                                        ]
-                           }
-                                                      
+                           {path: 'note', component: NoteComponent},
+                           {path: 'newtask', component: AddTaskComponent},
+                           {path: 'task', component: TaskComponent},
+                           {path: 'gettask/:id',      component: EditTaskComponent }
+                           
                            /*{ path: 'crisis-center', component: CrisisListComponent },
                            { path: 'hero/:id',      component: HeroDetailComponent },*/
                            //{path: 'task', component: TaskComponent},
@@ -51,7 +51,8 @@ const appRoutes: Routes = [
     AddUserComponent,
     EditUserComponent,
     NoteComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    EditTaskComponent
   ],
   imports: [           
         RouterModule.forRoot(

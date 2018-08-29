@@ -9,29 +9,51 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.css']
+  styleUrls: ['./add-task.component.css'],
+  providers: [TaskService]
 })
 export class AddTaskComponent {
 
-   // heroForm: FormGroup;
-   // form: FormGroup;
+    heroForm: FormGroup;
+   form: FormGroup;
 submitted = false;
-//task = new Task();
+task = new Task();
 
+//,
 
-/*constructor(private fb: FormBuilder,
-        private taskService: TaskService,
-        private location: Location) {
-    // this.createForm();  
+//private location2: Location;
+//private taskService: TaskService;
+//private fb2: FormBuilder,
+/*constructor(private location2: Location,
+private taskService: TaskService
+       ) {
+   
 }*/
 
+constructor(private taskService: TaskService,
+        private location: Location) {
+  //this.createForm();
+}
 
-/*
-createForm() {
+/*constructor(
+        private dataService: DataService,
+        private route: ActivatedRoute,
+        private location: Location
+      ) {}*/
+
+/*createForm() {
   this.heroForm = this.fb.group({ // <-- the parent FormGroup
     empname: ['', Validators.required ]    
   });
-}
+}*/
+
+
+
+/*createForm() {
+  this.heroForm = this.fb.group({ // <-- the parent FormGroup
+    empname: ['', Validators.required ]    
+  });
+}*/
  
 openDialog() {
     console.log(this.task); 
@@ -40,13 +62,13 @@ openDialog() {
 
 onSubmit(): void {
     this.submitted = true;
-    this.taskService.update(this.task);
+    this.taskService.saveTask(this.task);
     console.log(this.task); 
   }
 
 goBack(): void {
-    this.location.back();
-  }*/
+   this.location.back();
+  }
  
 }
 

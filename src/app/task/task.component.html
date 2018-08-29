@@ -2,7 +2,7 @@
 <div class="container">
 
 <div class="row">
- 	<button routerLink="/task/addtask" class="btn btn-success">Add Task</button>
+ 	<button routerLink="/newtask" class="btn btn-success">Add Task</button>
    </div>
    
 <table class="table table-sm table-hover">
@@ -11,7 +11,9 @@
                  <th>Title</th>
                  <th>US</th>
                  <th>Description</th>
-                 <th>Created By</th>
+                 <th>Task Date</th>
+                 <th class="text-center"></th>
+                 <th class="text-center"></th>
              </tr>
              </thead>
              <tbody>
@@ -19,7 +21,12 @@
                  <td>{{post.title}}</td>
                  <td>{{post.userStory}}</td>
                  <td>{{post.description}}</td>
-                 <td>{{post.createdBy}}</td>
+                 <td>{{post.taskDate | date}}</td>
+                 <td class="text-center" style="width: 15px;">
+                 	<a [routerLink]="['/gettask', post._id]"  class="btn"> Edit </a></td>
+                 <td class="text-center" style="width: 15px;">
+                 	 <a [routerLink]="['/deletetask', post._id]"  class="btn"> Delete	</a>
+                 </td>
              </tr>
              </tbody>
 </table>

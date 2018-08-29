@@ -11,6 +11,7 @@ export class TaskService {
 
  
     private customersUrl = "http://localhost:6060/jer/rest/task/list";
+    private taskUrl = 'http://localhost:6060/jer/rest/task';
     
     private headers = new Headers({'Content-Type': 'application/json'});
   constructor(private http: Http) {
@@ -30,8 +31,8 @@ export class TaskService {
   }
   
   
-  update(hero: Task): Promise<Task> {
-      const url = `${this.customersUrl}/saveUser`;
+  saveTask(hero: Task): Promise<Task> {
+      const url = `${this.taskUrl}/saveTask`;
       return this.http
         .post(url, JSON.stringify(hero), {headers: this.headers})
         .toPromise()
@@ -39,16 +40,16 @@ export class TaskService {
         .catch(this.handleError);
     }
   
-  getUser(id: number): Promise<Task> {
-      const url = `${this.customersUrl}/${id}`;
+  getTask(id: number): Promise<Task> {
+      const url = `${this.taskUrl}/${id}`;
       return this.http.get(url)
         .toPromise()
         .then(response => response.json() as Task)
         .catch(this.handleError);
     }
 
-    updateUser(customer: Task): Promise<Task> {
-      const url = `${this.customersUrl}/updateuser`;
+    updateTask(customer: Task): Promise<Task> {
+      const url = `${this.taskUrl}/updateTask`;
       return this.http
         .post(url, JSON.stringify(customer), {headers: this.headers})
         .toPromise()
@@ -56,8 +57,8 @@ export class TaskService {
         .catch(this.handleError);
     }
 
-    deleteUser(id: string): Promise<void> {
-      const url = `${this.customersUrl}/deleteuser/${id}`;
+    deleteTask(id: string): Promise<void> {
+      const url = `${this.taskUrl}/deleteTask/${id}`;
       return this.http.get(url, {headers: this.headers})
         .toPromise()
         .then(() => null)
