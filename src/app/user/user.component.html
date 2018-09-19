@@ -1,6 +1,6 @@
  <div class="container">
   <div class="row">
- 	<button routerLink="/adduser" class="btn btn-success">Add User</button>
+ 	<button routerLink="/landing/adduser" class="btn btn-success">Add User</button>
    </div>
      <div class="row">
          <table class="table table-sm table-hover">
@@ -19,9 +19,9 @@
                  <td class="text-center" style="width: 200px;">{{post.lastName}}</td>
                  <td class="text-center">{{post.email}}</td>
                  <td class="text-center" style="width: 15px;">
-                 	<a [routerLink]="['/userdetail', post._id]"  class="btn"> Edit </a></td>
+                 	<a [routerLink]="['/landing/userdetail', post._id]"  class="btn"> Edit </a></td>
                  <td class="text-center" style="width: 15px;">
-                 	 <a [routerLink]="['/deleteuser', post._id]"  class="btn"> Delete	</a>
+                 	 <a [routerLink]="['/landing/deleteuser', post._id]"  class="btn"> Delete	</a>
                  </td>
              </tr>
              </tbody>

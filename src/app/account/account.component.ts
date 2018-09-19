@@ -1,29 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,NgForm, Validators } from '@angular/forms';
-import {TaskService} from "../task/task.service";
-import {Task} from "../task/task";
+import {AccountService} from "../account/account.service";
+import {Account} from "./account";
 
 @Component({
-  selector: 'app-task',
-  templateUrl: '../task/task.component.html',
-  styleUrls: ['../task/task.component.css'],
-  providers: [TaskService]
+  selector: 'app-account',
+  templateUrl: '../account/account.component.html',
+  styleUrls: ['../account/account.component.css'],
+  providers: [AccountService]
 })
-export class TaskComponent implements OnInit {
+
+export class AccountComponent implements OnInit {
   
  title = 'Task List';
   
   test = 'Welcome';
   
- usr_tab = "active";
+  _postsArray: Account[];
   
-  _postsArray: Task[];
-  
-  constructor(private taskService: TaskService) {
+  constructor(private accountService: AccountService) {
   }
 
   getPosts(): void {
-      this.taskService.getPosts()
+      this.accountService.getPosts()
           .subscribe(
               resultArray => this._postsArray = resultArray,
               error => console.log("Error :: " + error)

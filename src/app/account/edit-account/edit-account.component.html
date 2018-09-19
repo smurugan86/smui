@@ -1,0 +1,52 @@
+<h3><i>Edit Task</i></h3>
+
+ <div class="container">
+<div [hidden]="submitted">
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+      <label class="center-block">Title:    
+      <input type="text" class="form-control" id="title" required
+        [(ngModel)]="task.title" name="title">        
+    </label>
+  </div>
+  
+  <div class="form-group">
+    <label class="center-block">User Story:
+     <input type="text" class="form-control" id="userStory" required
+        [(ngModel)]="task.userStory" name="userStory">
+    </label>
+  </div>
+  
+  <div class="form-group">
+    <label class="center-block">Description:     
+       <input type="text" class="form-control" id="description" required
+        [(ngModel)]="task.description" name="description">
+    </label>
+  </div>
+    
+    <div class="form-group">
+    <label class="center-block">Task Date:     
+       <input type="date" class="form-control" id="taskDate" required
+        [(ngModel)]="task.taskDate" name="taskDate">
+    </label>
+  </div>
+  
+  <div class="form-row">
+ 	<button type="submit" class="btn btn-success">save</button>
+     <button class="btn btn-danger" (click)="delete()">Delete</button>
+  </div>
+    
+</form>
+
+
+</div>
+
+<div [hidden]="!submitted">
+    <h4>Update successfully!</h4>
+    <div class="btn-group">
+      <button class="btn btn-primary" (click)="goBack()">Back</button>
+      <button class="btn btn-success" (click)="submitted=false">Edit</button>
+    </div>
+</div>
+
+</div>

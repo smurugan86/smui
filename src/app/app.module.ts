@@ -3,69 +3,31 @@ import {ReactiveFormsModule} from '@angular/forms'
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { routing } from './app.routing';
-import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
-import { NoteComponent } from './note/note.component';
-import { TaskComponent } from './task/task.component';
-import { AddTaskComponent } from './task/add-task/add-task.component';
+//import { routing } from './app.routing';
 
 import { RouterModule, Routes } from '@angular/router';
-import { AddUserComponent } from './user/add-user/add-user.component';
-import { EditUserComponent } from './user/edit-user/edit-user.component';
-
-import { EditTaskComponent } from './task/edit-task/edit-task.component';
-//import {MdDialogModule} from '@angular/material';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { LandingComponent } from './landing/landing.component';
 
 
-const appRoutes: Routes = [                          
-                           {path: 'user', component: UserComponent},                                                  
-                           {path: 'adduser', component: AddUserComponent},
-                           {path: 'userdetail/:id',      component: EditUserComponent },                           
-                           {path: 'note', component: NoteComponent},
-                           {path: 'newtask', component: AddTaskComponent},
-                           {path: 'task', component: TaskComponent},
-                           {path: 'gettask/:id',      component: EditTaskComponent }
-                           
-                           /*{ path: 'crisis-center', component: CrisisListComponent },
-                           { path: 'hero/:id',      component: HeroDetailComponent },*/
-                           //{path: 'task', component: TaskComponent},
-                          // {path: 'task/addtask', component: AddTaskComponent},                           
-                         /*  {
-                             path: 'heroes',
-                             component: HeroListComponent,
-                             data: { title: 'Heroes List' }
-                           },
-                           { path: '',
-                             redirectTo: '/heroes',
-                             pathMatch: 'full'
-                           },
-                           { path: '**', component: PageNotFoundComponent }*/
-                         ];
+const routes: Routes = [ { path: 'landing', loadChildren: 'app/landing/landing.module#LandingModule' }, 
+                         { path: 'login', component: LoginComponent } ];
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UserComponent,
-    TaskComponent,    
-    AddUserComponent,
-    EditUserComponent,
-    NoteComponent,
-    AddTaskComponent,
-    EditTaskComponent
+    AppComponent,   
+    LoginComponent    
   ],
-  imports: [           
-        RouterModule.forRoot(
-        appRoutes,
-        { enableTracing: true } // <-- debugging purposes only
-      ),
-      // other imports here
+  imports: [   
+    RouterModule.forRoot(routes),
     BrowserModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule,
-    routing
+    ReactiveFormsModule
   ],
+  exports:[RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })

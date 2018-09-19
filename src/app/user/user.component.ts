@@ -14,7 +14,7 @@ export class UserComponent implements OnInit {
  title = 'User List';
   
   test = 'Welcome';
-  
+  usr_tab = "active";
   _postsArray: IPosts[];
   
   constructor(private userService: UserService) {

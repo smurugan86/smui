@@ -2,8 +2,8 @@
 <div class="container">
 
 <div class="row">
- 	<button routerLink="/landing/newtask" class="btn btn-success">Add Task</button>
-   </div>
+ 	<button routerLink="/newtask" class="btn btn-success">Add Account</button>
+</div>
    
 <table class="table table-sm table-hover">
              <thead>
@@ -23,9 +23,9 @@
                  <td>{{post.description}}</td>
                  <td>{{post.taskDate | date}}</td>
                  <td class="text-center" style="width: 15px;">
-                 	<a [routerLink]="['/landing/gettask', post._id]"  class="btn"> Edit </a></td>
+                 	<a [routerLink]="['/gettask', post._id]"  class="btn"> Edit </a></td>
                  <td class="text-center" style="width: 15px;">
-                 	 <a [routerLink]="['/landing/deletetask', post._id]"  class="btn"> Delete	</a>
+                 	 <a [routerLink]="['/deletetask', post._id]"  class="btn"> Delete	</a>
                  </td>
              </tr>
              </tbody>
