@@ -42,13 +42,17 @@ export class LoginComponent implements OnInit {
                   localStorage.setItem('userId', res._id);
                   localStorage.setItem('userName', res.firstName+' '+res.lastName);
                   
-                  console.log('res is ', res.firstName);
+                  console.log('User name is ', res.firstName);
                   if ( res.userRole != null ) {
+                      console.log('res is ', res.userRole);
                       this.router.navigate( ['/landing/user'] );
+                  }else{
+                      this.router.navigate( ['/login'] );
                   }
                 },
                 error => {
                   alert("ERROR");
+                  this.router.navigate( ['/login'] );
                 });
       
      /* for (let i = 0; i < localStorage.length; i++){

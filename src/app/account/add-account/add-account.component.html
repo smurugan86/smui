@@ -1,49 +1,59 @@
-<h2>Add Task Page</h2>
+<h2>Add account Page</h2>
 
 <div class="container">
 
-<h3><i> Create task</i></h3>
+<h3><i> Create Account</i></h3>
 <div [hidden]="submitted">
  
 <form class="emp-form" (ngSubmit)="onSubmit()">
   <div class="form-group">
-      <label class="center-block">Title:    
-      <input type="text" class="form-control" id="title" required
-        [(ngModel)]="task.title" name="title">        
+      <label class="center-block">Account Type:    
+      <!-- <input type="text" class="form-control" id="accountType" required
+        [(ngModel)]="account.accountType" name="accountType">  -->
+        <select [(ngModel)]="account.accountType" id="accountType" name="accountType" required>           
+	     	 <option *ngFor="let accountType of accTypes" [ngValue]="accountType" > {{accountType}} </option>  
+         </select>       
     </label>
   </div>
   
   <div class="form-group">
-    <label class="center-block">User Story:
-     <input type="text" class="form-control" id="userStory" required
-        [(ngModel)]="task.userStory" name="userStory">
+    <label class="center-block">Category:
+     <input type="text" class="form-control" id="categoryName" required
+        [(ngModel)]="account.categoryName" name="categoryName">
     </label>
   </div>
   
   <div class="form-group">
-    <label class="center-block">Description:     
+    <label class="center-block">Amount:     
+       <input type="text" class="form-control" id="amount" required
+        [(ngModel)]="account.amount" name="amount">
+    </label>
+  </div>
+  
+   <div class="form-group">
+    <label class="center-block">description:     
        <input type="text" class="form-control" id="description" required
-        [(ngModel)]="task.description" name="description">
+        [(ngModel)]="account.description" name="description">
     </label>
   </div>
   
    <div class="form-group">
     <label class="center-block">Date:     
-       <input type="date" class="form-control" id="taskDate" required
-        [(ngModel)]="task.taskDate" name="description">
+       <input type="date" class="form-control" id="date" required
+        [(ngModel)]="account.date" name="date">
     </label>
   </div>
   
   <div class="form-row">
  	<button type="submit" class="btn btn-success">save</button>   	
- 	<button class="btn btn-primary"  routerLink="/task">Back</button>   
+ 	<button class="btn btn-primary"  routerLink="/account">Back</button>   
   </div>
     
 </form> 
 </div>
 
 <div [hidden]="!submitted">
-    <h4>task Created successfully!</h4>
+    <h4>account Created successfully!</h4>
     <div class="btn-group">
       <button class="btn btn-primary" (click)="goBack()">Back</button>      
       <button class="btn btn-success" (click)="submitted=false">Edit</button>

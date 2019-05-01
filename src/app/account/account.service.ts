@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import "rxjs/Rx";
 import {Account} from "./account";
+import {AccTotal} from "./acctotal";
 import { Headers, Http,Response } from '@angular/http';
 import { Location } from '@angular/common';
 
@@ -16,13 +17,27 @@ export class AccountService {
     constructor(private http: Http) {}
 
   getPosts(): Observable<Account[]> {
+      
+      const userId = localStorage.getItem('userId');
+      const url = `${this.customersUrl}/${userId}`;
+      
       return this.http
-          .get(this.customersUrl)
+          .get(url)
           .map((response: Response) => {
               return <Account[]>response.json();
           })
           .catch(this.handleError);
   }
+  
+  
+  getTotal(): Observable<AccTotal> {
+      const userId = localStorage.getItem('userId');
+      const url = `${this.accountUrl}/getTotalAccount/${userId}`;
+      return this.http.get(url)
+        .map(response => response.json() as AccTotal)
+        .catch(this.handleError);
+    }
+  
 
   private handleError(error: Response) {
       return Observable.throw(error.statusText);
@@ -30,7 +45,7 @@ export class AccountService {
   
   
   saveTask(hero: Account): Promise<Account> {
-      const url = `${this.accountUrl}/saveTask`;
+      const url = `${this.accountUrl}/saveAccount`;
       return this.http
         .post(url, JSON.stringify(hero), {headers: this.headers})
         .toPromise()
@@ -47,7 +62,7 @@ export class AccountService {
     }
 
     updateTask(customer: Account): Promise<Account> {
-      const url = `${this.accountUrl}/updateTask`;
+      const url = `${this.accountUrl}/updateAccount`;
       return this.http
         .post(url, JSON.stringify(customer), {headers: this.headers})
         .toPromise()
@@ -63,5 +78,8 @@ export class AccountService {
         .catch(this.handleError);
     }
     
+    getTaskDetails(){
+        
+    }
   
 }

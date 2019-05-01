@@ -1,36 +1,46 @@
-<h3><i>Edit Task</i></h3>
+<h3><i>Edit Account</i></h3>
 
  <div class="container">
 <div [hidden]="submitted">
 <form (ngSubmit)="onSubmit()">
-  <div class="form-group">
-      <label class="center-block">Title:    
-      <input type="text" class="form-control" id="title" required
-        [(ngModel)]="task.title" name="title">        
+   <div class="form-group">
+   
+    <input type="hidden" class="form-control" id="_id" required
+        [(ngModel)]="account._id" name="_id"> 
+        
+      <label class="center-block">Account Type:    
+      <input  type="text" class="form-control" id="accountType" required
+        [(ngModel)]="account.accountType" name="accountType">        
     </label>
   </div>
   
   <div class="form-group">
-    <label class="center-block">User Story:
-     <input type="text" class="form-control" id="userStory" required
-        [(ngModel)]="task.userStory" name="userStory">
+    <label class="center-block">Category:
+     <input type="text" class="form-control" id="categoryName" required
+        [(ngModel)]="account.categoryName" name="categoryName">
     </label>
   </div>
   
   <div class="form-group">
-    <label class="center-block">Description:     
+    <label class="center-block">Amount:     
+       <input type="text" class="form-control" id="amount" required
+        [(ngModel)]="account.amount" name="amount">
+    </label>
+  </div>
+  
+   <div class="form-group">
+    <label class="center-block">description:     
        <input type="text" class="form-control" id="description" required
-        [(ngModel)]="task.description" name="description">
-    </label>
-  </div>
-    
-    <div class="form-group">
-    <label class="center-block">Task Date:     
-       <input type="date" class="form-control" id="taskDate" required
-        [(ngModel)]="task.taskDate" name="taskDate">
+        [(ngModel)]="account.description" name="description">
     </label>
   </div>
   
+   <div class="form-group">
+    <label class="center-block">Date:     
+       <input type="date" class="form-control" id="date" required
+        [(ngModel)]="account.date" name="date">
+    </label>
+  </div>
   <div class="form-row">
  	<button type="submit" class="btn btn-success">save</button>
      <button class="btn btn-danger" (click)="delete()">Delete</button>

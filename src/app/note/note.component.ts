@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,NgForm, Validators } from '@angular/forms';
 import {NoteService} from "../note/note.service";
-import {IPosts} from "./../posts";
+
 
 @Component({
   selector: 'app-note',
@@ -11,18 +11,25 @@ import {IPosts} from "./../posts";
 })
 export class NoteComponent implements OnInit {
   
- title = 'note List';
+    title = 'note List';
   
-  test = 'Welcome';
+    test = 'Welcome';
   
-  _postsArray: IPosts[];
   
   constructor(private noteService: NoteService) {
   }
 
+  /*getPosts(): void {
+      this.noteService.getPosts()
+          .subscribe(
+              resultArray => this._postsArray = resultArray,
+              error => console.log("Error :: " + error)
+          )
+  }*/
 
   ngOnInit(): void {
-     
+     // this.getPosts();
+      console.log('note loaded ');
   }
   
 }

@@ -19,7 +19,7 @@ export class LandingComponent implements OnInit {
      // let userInfo = localStorage.getItem("userInfo");
       let userInfo = JSON.parse(localStorage.getItem("userInfo"));
       if ( userInfo != null ) {
-          alert(userInfo);
+          //alert(userInfo);
           console.log('res is ', userInfo);
           //this.router.navigate( ['/landing/user'] );
       }

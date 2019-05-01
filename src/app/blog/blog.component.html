@@ -1,0 +1,53 @@
+
+<div class="container">
+
+<div class="row">
+ 	<button routerLink="/landing/newblog" class="btn btn-success">Add Blog</button>
+   </div>
+   
+<!-- <table class="table table-sm table-hover">
+             <thead>
+             <tr class="tabHead">
+            	 <th>Blog Date</th>
+                 <th>Title</th>
+                 <th>Description</th>
+                 
+                 <th class="text-center"></th>
+                 <th class="text-center"></th>
+             </tr>
+             </thead>
+             <tbody>
+             <tr *ngFor="let post of _postsArray" class='datatableodd'>                 
+                 <td  class="text-center" style="width: 120px;">{{post.blogDate| date}}</td>
+                 <td style="width: 150px;" > {{post.title}}</td>
+                 <td style="width: 300px;">{{post.description}}</td>
+                 
+                 <td class="text-center" style="width: 15px;">
+                 	<a [routerLink]="['/landing/getblog', post._id]"  class="btn"> Edit </a></td>
+                 <td class="text-center" style="width: 15px;">
+                 	 <a [routerLink]="['/landing/deleteblog', post._id]"  class="btn"> Delete	</a>
+                 </td>
+             </tr>
+             </tbody>
+</table> -->
+
+<br><hr>
+<div *ngFor="let post of _postsArray">
+
+<div><b>Title :</b> {{post.title}}</div>
+<br>
+<div><b>Date :</b> {{post.blogDate| date}}</div>
+<br>
+<div><b>Description :</b> {{post.description}}</div>
+
+<div> 
+<a [routerLink]="['/landing/getblog', post._id]"  class="btn">Edit</a> 
+<a [routerLink]="['/landing/deleteblog', post._id]"  class="btn">Delete</a>
+</div>
+
+<hr>
+
+</div>
+
+      </div>
+      

@@ -1,30 +1,30 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import "rxjs/Rx";
-import {Task} from "./task";
+import {Blog} from "./blog";
 import { Headers, Http,Response } from '@angular/http';
 import { Location } from '@angular/common';
 
 
 @Injectable()
-export class TaskService {
+export class BlogService {
 
  
-    private customersUrl = "http://localhost:6060/jer/rest/task/list";
-    private taskUrl = 'http://localhost:6060/jer/rest/task';
+    private customersUrl = "http://localhost:6060/jer/rest/blog/list";
+    private blogUrl = 'http://localhost:6060/jer/rest/blog';
     
     private headers = new Headers({'Content-Type': 'application/json'});
   constructor(private http: Http) {
   }
 
-  getPosts(): Observable<Task[]> {
+  getPosts(): Observable<Blob[]> {
       const userId = localStorage.getItem('userId');
       const url = `${this.customersUrl}/${userId}`;
       
       return this.http
           .get(url)
           .map((response: Response) => {
-              return <Task[]>response.json();
+              return <Blob[]>response.json();
           })
           .catch(this.handleError);
   }
@@ -34,8 +34,8 @@ export class TaskService {
   }
   
   
-  saveTask(hero: Task): Promise<Task> {
-      const url = `${this.taskUrl}/saveTask`;
+  saveBlob(hero: Blog): Promise<Blog> {
+      const url = `${this.blogUrl}/saveBlog`;
       return this.http
         .post(url, JSON.stringify(hero), {headers: this.headers})
         .toPromise()
@@ -43,16 +43,16 @@ export class TaskService {
         .catch(this.handleError);
     }
   
-  getTask(id: number): Promise<Task> {
-      const url = `${this.taskUrl}/${id}`;
+  getBlob(id: number): Promise<Blog> {
+      const url = `${this.blogUrl}/${id}`;
       return this.http.get(url)
         .toPromise()
-        .then(response => response.json() as Task)
+        .then(response => response.json() as Blog)
         .catch(this.handleError);
     }
 
-    updateTask(customer: Task): Promise<Task> {
-      const url = `${this.taskUrl}/updateTask`;
+    updateBlob(customer: Blog): Promise<Blog> {
+      const url = `${this.blogUrl}/updateBlog`;
       return this.http
         .post(url, JSON.stringify(customer), {headers: this.headers})
         .toPromise()
@@ -60,8 +60,8 @@ export class TaskService {
         .catch(this.handleError);
     }
 
-    deleteTask(id: string): Promise<void> {
-      const url = `${this.taskUrl}/deleteTask/${id}`;
+    deleteBlob(id: string): Promise<void> {
+      const url = `${this.blogUrl}/deleteBlog/${id}`;
       return this.http.get(url, {headers: this.headers})
         .toPromise()
         .then(() => null)

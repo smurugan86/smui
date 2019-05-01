@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,NgForm, Validators } from '@angular/forms';
-import {TaskService} from "../task/task.service";
-import {Task} from "../task/task";
+import {BlogService} from "./blog.service";
+import {Blog} from "./blog";
 
 @Component({
-  selector: 'app-task',
-  templateUrl: '../task/task.component.html',
-  styleUrls: ['../task/task.component.css'],
-  providers: [TaskService]
+  selector: 'app-blog',
+  templateUrl: '../blog/blog.component.html',
+  styleUrls: ['../blog/blog.component.css'],
+  providers: [BlogService]
 })
-export class TaskComponent implements OnInit {
+export class BlogComponent implements OnInit {
   
-   title = 'Task List';
+   title = 'blob List';
   
   test = 'Welcome';
   
  usr_tab = "active";
   
-  _postsArray: Task[];
+  _postsArray: Blob[];
   
-  constructor(private taskService: TaskService) {
+  constructor(private blogService: BlogService) {
   }
 
   getPosts(): void {
-      this.taskService.getPosts()
+      this.blogService.getPosts()
           .subscribe(
               resultArray => this._postsArray = resultArray,
               error => console.log("Error :: " + error)

@@ -1,47 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 //import { FormControl } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Account } from '../account';
-import {AccountService} from "../account.service";
+import { Blog } from '../blog';
+import {BlogService} from "../blog.service";
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-  selector: 'app-account-account',
-  templateUrl: './edit-account.component.html',
-  styleUrls: ['./edit-account.component.css'],
-  providers: [AccountService]
+  selector: 'app-edit-blog',
+  templateUrl: './edit-blog.component.html',
+  styleUrls: ['./edit-blog.component.css'],
+  providers: [BlogService]
 })
-export class EditAccountComponent {
+export class EditBlogComponent {
 
     heroForm: FormGroup;
     form: FormGroup;
     //states = states;
-    account = new Account();
+    blog = new Blog();
     submitted = false;
 
 constructor(
         private fb: FormBuilder,
-        private accontService: AccountService,
+        private blogService: BlogService,
         private route: ActivatedRoute,
         private location: Location) {
 }
 
   ngOnInit(): void {
     this.route.params
-    .switchMap((params: Params) => this.accontService.getTask(params['id']))
-    .subscribe(task => this.account = task);
+    .switchMap((params: Params) => this.blogService.getBlob(params['id']))
+    .subscribe(blog => this.blog = blog);
   }
 
    onSubmit(): void {
     this.submitted = true;
-    this.accontService.updateTask(this.account);
-    console.log(this.account);
+    this.blogService.updateBlob(this.blog);
+    console.log(this.blog);
   }
  
   delete(): void {
-    this.accontService.deleteTask(this.account._id).then(() => this.goBack());
+    this.blogService.deleteBlob(this.blog._id).then(() => this.goBack());
   }
  
   goBack(): void {

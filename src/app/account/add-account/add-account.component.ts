@@ -17,8 +17,8 @@ export class AddAccountComponent {
     heroForm: FormGroup;
    form: FormGroup;
 submitted = false;
-task = new Account();
-
+account = new Account();
+accTypes : string [] = ['Credit', 'Debit'];
 //,
 
 //private location2: Location;
@@ -30,7 +30,7 @@ private taskService: TaskService
    
 }*/
 
-constructor(private taskService: AccountService,
+constructor(private accountService: AccountService,
         private location: Location) {
   //this.createForm();
 }
@@ -56,14 +56,15 @@ constructor(private taskService: AccountService,
 }*/
  
 openDialog() {
-    console.log(this.task); 
+    console.log(this.account); 
   }
 
 
 onSubmit(): void {
     this.submitted = true;
-    this.taskService.saveTask(this.task);
-    console.log(this.task); 
+    this.account.userId=localStorage.getItem('userId');
+    this.accountService.saveTask(this.account);
+    console.log(this.account); 
   }
 
 goBack(): void {

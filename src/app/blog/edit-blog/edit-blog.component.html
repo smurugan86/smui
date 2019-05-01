@@ -1,35 +1,30 @@
-<h3><i>Edit Task</i></h3>
+<h3><i>Edit Blog</i></h3>
 
  <div class="container">
 <div [hidden]="submitted">
 <form (ngSubmit)="onSubmit()">
   <div class="form-group">
    <input type="hidden" class="form-control" id="_id" required
-        [(ngModel)]="task._id" name="_id"> 
+        [(ngModel)]="blog._id" name="_id"> 
       <label class="center-block">Title:    
       <input type="text" class="form-control" id="title" required
-        [(ngModel)]="task.title" name="title">        
+        [(ngModel)]="blog.title" name="title">        
     </label>
   </div>
   
-  <div class="form-group">
-    <label class="center-block">User Story:
-     <input type="text" class="form-control" id="userStory" required
-        [(ngModel)]="task.userStory" name="userStory">
-    </label>
-  </div>
+  
   
   <div class="form-group">
     <label class="center-block">Description:     
        <input type="text" class="form-control" id="description" required
-        [(ngModel)]="task.description" name="description">
+        [(ngModel)]="blog.description" name="description">
     </label>
   </div>
     
     <div class="form-group">
-    <label class="center-block">Task Date:     
-       <input type="date" class="form-control" id="taskDate" required
-        [(ngModel)]="task.taskDate" name="taskDate">
+    <label class="center-block">Blog Date:     
+       <input type="date" class="form-control" id="blogDate" required
+        [(ngModel)]="blog.blogDate" name="taskDate">
     </label>
   </div>
   

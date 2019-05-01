@@ -8,25 +8,26 @@
 <table class="table table-sm table-hover">
              <thead>
              <tr class="tabHead">
+             	<th>Date</th>
                  <th>Title</th>
                  <th>US</th>
                  <th>Description</th>
-                 <th>Task Date</th>
                  <th class="text-center"></th>
                  <th class="text-center"></th>
              </tr>
              </thead>
              <tbody>
-             <tr *ngFor="let post of _postsArray" class='datatableodd'>                 
+             <tr *ngFor="let post of _postsArray" class='datatableodd'>   
+                 <td class="text-center" style="width: 120px;">{{post.taskDate | date}}</td>              
                  <td>{{post.title}}</td>
                  <td>{{post.userStory}}</td>
                  <td>{{post.description}}</td>
-                 <td>{{post.taskDate | date}}</td>
                  <td class="text-center" style="width: 15px;">
-                 	<a [routerLink]="['/landing/gettask', post._id]"  class="btn"> Edit </a></td>
-                 <td class="text-center" style="width: 15px;">
-                 	 <a [routerLink]="['/landing/deletetask', post._id]"  class="btn"> Delete	</a>
+                 	<a [routerLink]="['/landing/gettask', post._id]"  class="btn"> Edit </a>
                  </td>
+                  <td class="text-center" style="width: 15px;">
+                  <a [routerLink]="['/landing/deletetask', post._id]"  class="btn"> Delete	</a>
+                  </td>
              </tr>
              </tbody>
 </table>

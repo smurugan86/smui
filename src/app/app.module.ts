@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
+import { TypesComponent } from './types/types/types.component';
 
 
 const routes: Routes = [ { path: 'landing', loadChildren: 'app/landing/landing.module#LandingModule' }, 
@@ -18,7 +19,7 @@ const routes: Routes = [ { path: 'landing', loadChildren: 'app/landing/landing.m
 @NgModule({
   declarations: [
     AppComponent,   
-    LoginComponent    
+    LoginComponent, TypesComponent    
   ],
   imports: [   
     RouterModule.forRoot(routes),
